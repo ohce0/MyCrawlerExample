@@ -22,11 +22,11 @@ public class FacebookExam {
 	public static void main(String[] args) {
 		
 		// 遠端資料路徑
-
+//crazyck101/feed?fields=id,link,message,created_time,likes.limit(0).summary(total_count),reactions.limit(0).summary(total_count)
 		String uri = 
 				"https://graph.facebook.com/v2.6"
-				+ "/search?q="
-				+ "&access_token=";
+				+ "/crazyck101/feed?fields=id,reactions.limit(0).summary(total_count)"
+				+ "&access_token=664670030408291%7CT4mz8lNWqi0YgfZ-0BkYh1EnlLE";
 
 
 		Elements elems =
@@ -34,17 +34,17 @@ public class FacebookExam {
 				.getFromJson(uri)
 				.select("data");
 		
-		String output = "id,reactions";
+		StringBuffer output = new StringBuffer("id,reactions\n");
 
 		// 遂筆處理
 		for( Element data: elems ){
 			String id = data.select("id").text();
 
 			// FIXIT
-			String reactions = "";
+			String reactions = data.select("reactions summary total_count").text();
 
 
-			output += id + "," + reactions + "\n";
+			output.append(id).append(",").append(reactions).append("\n");
 		}
 
 		System.out.println( output );
