@@ -20,7 +20,7 @@ public class PTTMainArticle {
 		//CrawlerPack.setLoggerLevel(SimpleLog.LOG_LEVEL_OFF);
 
 		// 遠端資料路徑
-		String uri = "https://www.ptt.cc/bbs/Gossiping/M.1491698530.A.0FC.html";
+		String uri = "https://www.ptt.cc/bbs/Gossiping/M.1491723668.A.D17.html";
         Elements ele = CrawlerPack.start()
 
                 // 參數設定
@@ -38,7 +38,8 @@ public class PTTMainArticle {
 
         ele.select("span, div").remove();
 
-        String str=ele.text().replaceAll("<.*>","");
+        //String str=ele.text().replaceAll("<.*>","");
+        String str=ele.text();
 		System.out.println(str);
 	}
 }
