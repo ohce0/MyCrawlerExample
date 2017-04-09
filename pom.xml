@@ -26,7 +26,7 @@
           <configuration>
             <programs>
               <program>
-                <mainClass>crawler.example.past.YahooStock</mainClass>
+                <mainClass>crawler.example.integration.FBElasticImport</mainClass>
                 <id>yahooStock</id>
               </program>
               <program>
