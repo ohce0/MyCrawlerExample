@@ -38,6 +38,7 @@ public class PTTMainArticle {
 
         ele.select("span, div").remove();
 
-		System.out.println(ele.text().replaceAll("<.*>",""));
+        String str=ele.text().replaceAll("<.*>","");
+		System.out.println(str);
 	}
 }
