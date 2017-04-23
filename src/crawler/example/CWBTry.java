@@ -22,7 +22,7 @@ public class CWBTry {
 		// turn off logging
 		CrawlerPack.setLoggerLevel(SimpleLog.LOG_LEVEL_OFF);
 
-		Integer stationSerial=2;
+		Integer stationSerial=12;
 
         String datepicked="2016-04-21";
         Integer duration =365; //days
@@ -39,9 +39,7 @@ public class CWBTry {
 
 
         for (int d =0;d<duration;d++) {
-
-
-            // 遠端資料路徑
+            System.out.println(datepicked);
             String uri = "http://e-service.cwb.gov.tw/HistoryDataQuery/DayDataController.do?command=viewMain&" +
                     "station=" + stationNo + "&" +
                     "stname=" + station + "&" +
@@ -67,13 +65,13 @@ public class CWBTry {
             StringBuffer result = new StringBuffer("");
 
             if(data.size()<5) {
-                System.out.println("End");
+                System.out.println("End: no data");
                 return;
             }
             //        System.out.println(data.get(19));
 
             for (int i = 0; i < 24; i++) {
-                //            System.out.print(datepicked);
+//                System.out.println(datepicked);
                 result.append(stationNo).append(", ").append(datepicked).append(", ");
                 for (int j = 4; j < 19; j++) {
                     //                System.out.print(data.get(i*15+j).text()+", ");
@@ -86,7 +84,7 @@ public class CWBTry {
             c.add(Calendar.DATE, 1);  // number of days to add
             datepicked = sdf.format(c.getTime());  // dt is now the new date
         }
-        System.out.println("Finished");
+        System.out.println("Finished: success");
     }
 
     public static void Save( String textToSave, String fileName) {
